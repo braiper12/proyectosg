@@ -14,28 +14,11 @@ MongoDB - Base de datos NoSQL (próximamente)
 Mongoose - ODM para MongoDB
 Dotenv - Manejo de variables de entorno
 CORS - Cross-Origin Resource Sharing
+joi - joi
 
 Dependencias de Desarrollo
 
 Nodemon - Auto-restart del servidor durante desarrollo
-
-📁 Estructura del Proyecto
-mi-proyecto-backend/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/     # Lógica de controladores (pendiente)
-│   │   ├── models/          # Modelos de datos (pendiente)
-│   │   ├── routes/          # Definición de rutas (pendiente)
-│   │   ├── middleware/      # Middleware personalizado (pendiente)
-│   │   ├── config/          # Configuraciones (pendiente)
-│   │   └── utils/           # Utilidades y helpers (pendiente)
-│   ├── tests/               # Pruebas (pendiente)
-│   ├── docs/                # Documentación (pendiente)
-│   ├── app.js               # ✅ Aplicación principal
-│   ├── .env                 # ✅ Variables de entorno
-│   ├── .gitignore           # ✅ Archivos ignorados por Git
-│   └── package.json         # ✅ Configuración del proyecto
-└── README.md                # ✅ Este archivo
 
 ⚙️ Requisitos Previos
 Antes de ejecutar este proyecto, asegúrate de tener instalado:
@@ -43,7 +26,9 @@ Antes de ejecutar este proyecto, asegúrate de tener instalado:
 Node.js (versión 16 o superior)
 npm (viene con Node.js)
 Git
-MongoDB (opcional por ahora)
+MongoDB local
+mongosh
+
 
 🚀 Instalación y Configuración
 1. Clonar el repositorio
@@ -63,7 +48,7 @@ cp .env.example .env
 # PORT=3000
 # MONGODB_URI=mongodb://localhost:27017/mi-base-datos
 5. Ejecutar el proyecto
-bash# Modo desarrollo (con auto-restart)
+
 npm run dev
 
 # Modo producción
@@ -71,8 +56,9 @@ npm start
 🌐 Endpoints Disponibles
 Endpoints Base (Implementados)
 MétodoEndpointDescripciónEstadoGET/Mensaje de bienvenida✅GET/healthEstado del servidor✅
-Endpoints Planeados (Próximamente)
-MétodoEndpointDescripciónEstadoPOST/api/auth/loginIniciar sesión🔄POST/api/auth/registerRegistrar usuario🔄GET/api/usersListar usuarios🔄POST/api/usersCrear usuario🔄
+
+Descargar coleccion de postman
+
 🧪 Pruebas
 Probar que el servidor funciona:
 bash# Ejecutar el servidor
@@ -85,7 +71,8 @@ curl http://localhost:3000
 curl http://localhost:3000/health
 # Debería devolver: {"status":"OK","uptime":...}
 🔧 Variables de Entorno
-VariableDescripciónValor por DefectoNODE_ENVEntorno de ejecucióndevelopmentPORTPuerto del servidor3000MONGODB_URIURI de conexión a MongoDBmongodb://localhost:27017/mi-base-datosDB_NAMENombre de la base de datosmi-base-datos
+
+
 🌿 Gestión de Ramas
 Estrategia de Branching
 
@@ -152,22 +139,7 @@ Verifica que las dependencias estén instaladas: npm list
 Comprueba que el puerto 3000 esté disponible
 Revisa el archivo .env
 
-📄 Licencia
-[Especifica tu licencia - MIT, GPL, etc.]
+
 👤 Autor
-[Tu Nombre]
+Braian Alejandro Perez Castillo
 
-GitHub: @tu-usuario
-Email: tu-email@ejemplo.com
-
-
-📊 Estado del Desarrollo
-Progreso General: ████████░░░░░░░░░░░░ 40%
-
-✅ Configuración inicial
-✅ Estructura de proyecto  
-✅ Servidor básico
-🔄 Base de datos (próximo)
-⏳ Autenticación
-⏳ API REST
-⏳ Testing
