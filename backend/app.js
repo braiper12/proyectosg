@@ -1,41 +1,46 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import routesUsers from './src/routes/users.js';
+import { connectDB } from './src/config/db.js';
+import routesEmpresa from './src/routes/empresa.js';
 
-const app = express()
+dotenv.config();
+
+// Conexión a MongoDB
+connectDB();
+
+const app = express();
 
 // middlewares
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
-
-//ruta de prueba
-
+// ruta de prueba
 app.get('/', (req, res) => {
     res.json({
-
         message: 'API FUNCIONA OK',
         timestamp: new Date().toISOString()
-    })
-})
+    });
+});
 
-
-//ruta validar status selver
-
+// ruta validar status server
 app.get('/health', (req, res) => {
-
     res.status(200).json({
         status: 'ok',
         uptime: process.uptime()
-    })
-})
+    });
+});
 
-const PORT = process.env.port || 3000
+// definir routes public
+app.use('/users', routesUsers);
+app.use('/empresa', routesEmpresa);
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log('☻ server corriendo en puerto  ' , PORT)
-})
+    console.log('☻ server corriendo en puerto', PORT);
+});
 
-module.exports = app
+export default app;

@@ -1,0 +1,173 @@
+🚀 Mi Proyecto Backend
+
+Estado del Proyecto: 🟡 En Desarrollo Inicial
+Versión: 1.0.0
+Fecha de Inicio: 03082025
+
+📝 Descripción
+Backend desarrollado con Node.js y Express para [describe brevemente el propósito de tu aplicación]. Este proyecto está en fase inicial de desarrollo con la estructura básica implementada.
+🛠️ Tecnologías Utilizadas
+
+Node.js - Entorno de ejecución de JavaScript
+Express.js - Framework web para Node.js
+MongoDB - Base de datos NoSQL (próximamente)
+Mongoose - ODM para MongoDB
+Dotenv - Manejo de variables de entorno
+CORS - Cross-Origin Resource Sharing
+
+Dependencias de Desarrollo
+
+Nodemon - Auto-restart del servidor durante desarrollo
+
+📁 Estructura del Proyecto
+mi-proyecto-backend/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/     # Lógica de controladores (pendiente)
+│   │   ├── models/          # Modelos de datos (pendiente)
+│   │   ├── routes/          # Definición de rutas (pendiente)
+│   │   ├── middleware/      # Middleware personalizado (pendiente)
+│   │   ├── config/          # Configuraciones (pendiente)
+│   │   └── utils/           # Utilidades y helpers (pendiente)
+│   ├── tests/               # Pruebas (pendiente)
+│   ├── docs/                # Documentación (pendiente)
+│   ├── app.js               # ✅ Aplicación principal
+│   ├── .env                 # ✅ Variables de entorno
+│   ├── .gitignore           # ✅ Archivos ignorados por Git
+│   └── package.json         # ✅ Configuración del proyecto
+└── README.md                # ✅ Este archivo
+
+⚙️ Requisitos Previos
+Antes de ejecutar este proyecto, asegúrate de tener instalado:
+
+Node.js (versión 16 o superior)
+npm (viene con Node.js)
+Git
+MongoDB (opcional por ahora)
+
+🚀 Instalación y Configuración
+1. Clonar el repositorio
+bashgit clone https://github.com/braiper12/proyectosg.git
+cd mi-proyecto-backend
+2. Cambiar a la rama de desarrollo
+bashgit checkout desarrollo
+3. Instalar dependencias
+bashcd backend
+npm install
+4. Configurar variables de entorno
+bash# Copiar el archivo de ejemplo
+cp .env.example .env
+
+# Editar .env con tus configuraciones
+# NODE_ENV=development
+# PORT=3000
+# MONGODB_URI=mongodb://localhost:27017/mi-base-datos
+5. Ejecutar el proyecto
+bash# Modo desarrollo (con auto-restart)
+npm run dev
+
+# Modo producción
+npm start
+🌐 Endpoints Disponibles
+Endpoints Base (Implementados)
+MétodoEndpointDescripciónEstadoGET/Mensaje de bienvenida✅GET/healthEstado del servidor✅
+Endpoints Planeados (Próximamente)
+MétodoEndpointDescripciónEstadoPOST/api/auth/loginIniciar sesión🔄POST/api/auth/registerRegistrar usuario🔄GET/api/usersListar usuarios🔄POST/api/usersCrear usuario🔄
+🧪 Pruebas
+Probar que el servidor funciona:
+bash# Ejecutar el servidor
+npm run dev
+
+# En otra terminal o navegador, probar:
+curl http://localhost:3000
+# Debería devolver: {"message":"API funcionando correctamente!","timestamp":"..."}
+
+curl http://localhost:3000/health
+# Debería devolver: {"status":"OK","uptime":...}
+🔧 Variables de Entorno
+VariableDescripciónValor por DefectoNODE_ENVEntorno de ejecucióndevelopmentPORTPuerto del servidor3000MONGODB_URIURI de conexión a MongoDBmongodb://localhost:27017/mi-base-datosDB_NAMENombre de la base de datosmi-base-datos
+🌿 Gestión de Ramas
+Estrategia de Branching
+
+desarrollo: Rama principal de desarrollo
+Como trabajo individual, desarrollo directamente en desarrollo
+
+Comandos Git Útiles
+bash# Ver rama actual
+git branch
+
+# Cambiar a desarrollo
+git checkout desarrollo
+
+# Hacer commit de cambios
+git add .
+git commit -m "Descripción del cambio"
+
+# Subir cambios
+git push origin desarrollo
+📋 Próximos Pasos (Roadmap)
+Fase 1: Configuración Base ✅
+
+ Estructura de carpetas
+ Configuración inicial de Express
+ Variables de entorno
+ Git y ramas configuradas
+
+Fase 2: Base de Datos (Próximo) 🔄
+
+ Configurar conexión a MongoDB
+ Crear modelos base
+ Implementar esquemas
+
+Fase 3: Autenticación (Planeado) ⏳
+
+ Sistema de registro
+ Sistema de login
+ JWT tokens
+ Middleware de autenticación
+
+Fase 4: API REST (Planeado) ⏳
+
+ CRUD de usuarios
+ Rutas protegidas
+ Validaciones
+ Manejo de errores
+
+Fase 5: Testing y Documentación (Planeado) ⏳
+
+ Pruebas unitarias
+ Pruebas de integración
+ Documentación de API
+ Deploy
+
+🐛 Problemas Conocidos
+
+Ninguno por el momento
+
+📞 Soporte
+Si encuentras algún problema:
+
+Revisa que Node.js esté instalado: node --version
+Verifica que las dependencias estén instaladas: npm list
+Comprueba que el puerto 3000 esté disponible
+Revisa el archivo .env
+
+📄 Licencia
+[Especifica tu licencia - MIT, GPL, etc.]
+👤 Autor
+[Tu Nombre]
+
+GitHub: @tu-usuario
+Email: tu-email@ejemplo.com
+
+
+📊 Estado del Desarrollo
+Progreso General: ████████░░░░░░░░░░░░ 40%
+
+✅ Configuración inicial
+✅ Estructura de proyecto  
+✅ Servidor básico
+🔄 Base de datos (próximo)
+⏳ Autenticación
+⏳ API REST
+⏳ Testing
