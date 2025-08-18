@@ -43,10 +43,6 @@ npm install
 bash# Copiar el archivo de ejemplo
 cp .env.example .env
 
-# Editar .env con tus configuraciones
-# NODE_ENV=development
-# PORT=3000
-# MONGODB_URI=mongodb://localhost:27017/mi-base-datos
 5. Ejecutar el proyecto
 
 npm run dev
