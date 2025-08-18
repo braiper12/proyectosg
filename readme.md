@@ -4,6 +4,8 @@ Estado del Proyecto: 🟡 En Desarrollo Inicial
 Versión: 1.0.0
 Fecha de Inicio: 03082025
 
+Tutorial:_ **https://youtu.be/D26EyyiOcdM**
+
 📝 Descripción
 Backend desarrollado con Node.js y Express para [describe brevemente el propósito de tu aplicación]. Este proyecto está en fase inicial de desarrollo con la estructura básica implementada.
 🛠️ Tecnologías Utilizadas
