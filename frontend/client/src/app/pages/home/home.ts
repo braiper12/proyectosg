@@ -3,12 +3,15 @@ import { ServicesComponent } from '../../components/services/services';
 import { About } from '../../components/about/about';
 import { Contact } from '../../components/contact/contact';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [ServicesComponent,
+
     About,
-    Contact
+    Contact,
+  
   ],
   
   templateUrl: './home.html',
