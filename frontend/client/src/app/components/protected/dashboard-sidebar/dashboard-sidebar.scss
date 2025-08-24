@@ -1,0 +1,311 @@
+@use 'sass:color';
+
+// VARIABLES
+$primary-blue: #0A4D68;
+$secondary-blue: #088395;
+$background-light: #F0F4F8;
+$white: #FFFFFF;
+$text-dark: #343a40;
+$text-light: #F9F9F9;
+$border-color: #E0E0E0;
+$shadow-color: rgba(0, 0, 0, 0.05);
+
+$transition-speed: 0.3s;
+$transition-timing: ease;
+
+// PLACEHOLDERS / EXTENDS
+%nav-item-base {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  min-height: 56px;
+  text-decoration: none;
+  position: relative;
+  transition: all $transition-speed $transition-timing;
+
+  i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: color $transition-speed $transition-timing;
+  }
+
+  .nav-text,
+  .coming-soon {
+    white-space: nowrap;
+    transition: opacity $transition-speed $transition-timing, transform $transition-speed $transition-timing;
+  }
+
+  .coming-soon {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-left: auto;
+  }
+}
+
+// COMPONENTE SIDENAV
+.sidenav {
+  width: 280px;
+  min-width: 280px; // Agregar min-width para evitar que se comprima
+  max-width: 280px; // Agregar max-width para mantener el tamaño
+  height: 100vh;
+  background: linear-gradient(180deg, $primary-blue 0%, color.adjust($primary-blue, $lightness: -10%) 100%);
+  color: $text-light;
+  box-shadow: 2px 0 8px $shadow-color;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  transition: all $transition-speed $transition-timing; // Cambiar solo width por all
+  overflow: visible; // Cambiar de overflow-x: hidden a visible
+  display: flex;
+  flex-direction: column;
+
+  // --- Header ---
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgba($white, 0.1);
+    min-height: 80px; // Asegurar altura mínima
+    flex-shrink: 0; // No permitir que se comprima
+  }
+
+  // --- Logo ---
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden; // Solo ocultar overflow aquí si es necesario
+
+    i {
+      font-size: 2rem;
+      color: color.adjust($secondary-blue, $lightness: 20%);
+      flex-shrink: 0;
+      min-width: 32px; // Asegurar ancho mínimo para el ícono
+    }
+
+    .logo-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $white;
+      white-space: nowrap;
+      transition: opacity $transition-speed $transition-timing, transform $transition-speed $transition-timing;
+      overflow: hidden;
+    }
+  }
+
+  // --- Botón de Toggle ---
+  .toggle-btn {
+    background: rgba($white, 0.1);
+    border: none;
+    color: $white;
+    width: 36px; // Aumentar ligeramente el tamaño
+    height: 36px;
+    min-width: 36px; // Asegurar tamaño mínimo
+    min-height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all $transition-speed $transition-timing;
+    position: relative; // Asegurar posicionamiento
+    z-index: 10; // Asegurar que esté por encima
+
+    i {
+      font-size: 1rem; // Aumentar ligeramente el tamaño del ícono
+      transition: transform $transition-speed $transition-timing;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      background: rgba($white, 0.2);
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: 2px solid color.adjust($secondary-blue, $lightness: 20%);
+      outline-offset: 2px;
+    }
+  }
+
+  // --- Lista de Navegación ---
+  &__list {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto; // Permitir scroll vertical si es necesario
+
+    &-item {
+      margin: 8px 16px;
+
+      // Estilos para el enlace <a>
+      a {
+        @extend %nav-item-base;
+        color: rgba($white, 0.8);
+        cursor: pointer;
+
+        // Indicador lateral
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 4px;
+          height: 0;
+          background-color: color.adjust($secondary-blue, $lightness: 20%);
+          border-radius: 0 4px 4px 0;
+          transition: height $transition-speed $transition-timing;
+        }
+
+        &:hover {
+          background-color: rgba($white, 0.1);
+          color: $white;
+          transform: translateX(4px);
+
+          &::before {
+            height: 24px;
+          }
+        }
+
+        // Estado activo del enlace
+        &.active {
+          background-color: rgba($white, 0.15);
+          color: $white;
+          font-weight: 600;
+
+          &::before {
+            height: 32px;
+          }
+          i {
+            color: color.adjust($secondary-blue, $lightness: 20%);
+          }
+        }
+      }
+
+      // Estilos para ítems deshabilitados
+      span.disabled {
+        @extend %nav-item-base;
+        color: rgba($white, 0.4);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // ESTADO COLAPSADO
+  &.collapsed {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+
+    // Ajustar el header en estado colapsado
+    .sidenav__header {
+      padding: 20px 10px;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+   
+    .logo-text,
+    .nav-text,
+    .coming-soon {
+      opacity: 0;
+      transform: translateX(-20px);
+      pointer-events: none;
+      width: 0; 
+      overflow: hidden;
+    }
+
+    // Centrar el botón toggle
+    .toggle-btn {
+      position: relative;
+      margin: 0;
+    }
+
+    // Ajustar los enlaces de la lista
+    .sidenav__list-item {
+      margin: 8px 4px; // Reducir margen lateral
+
+      a, span.disabled {
+        justify-content: center;
+        padding: 16px 8px;
+        gap: 0; // Sin gap en modo colapsado
+
+        &::before {
+          display: none;
+        }
+
+        i {
+          margin: 0; 
+        }
+      }
+    }
+  }
+
+  // ESTILOS RESPONSIVE
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+
+    &.collapsed {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    &__header {
+      padding: 16px 20px;
+      min-height: 60px;
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 12px;
+
+      &-item {
+        flex: 1 1 120px;
+        margin: 4px;
+
+        a, span.disabled {
+          flex-direction: column;
+          padding: 12px 8px;
+          gap: 8px;
+
+          .nav-text {
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// CLASE DE UTILIDAD (ACCESIBILIDAD)
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,0 +1,365 @@
+// Variables de colores corporativos
+$primary-blue: #1e3a8a;
+$secondary-blue: #3b82f6;
+$light-blue: #dbeafe;
+$dark-blue: #1e40af;
+$accent-blue: #60a5fa;
+$white: #ffffff;
+$light-gray: #f8fafc;
+$gray: #64748b;
+$dark-gray: #334155;
+$success: #10b981;
+$danger: #ef4444;
+$warning: #f59e0b;
+
+.empresas-container {
+  padding: 24px;
+  background-color: $light-gray;
+  min-height: 100vh;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: $white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .header-content {
+      h1 {
+        color: $primary-blue;
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        i {
+          color: $secondary-blue;
+        }
+      }
+
+      p {
+        color: $gray;
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Estilos de botones
+  .btn-primary {
+    background-color: $primary-blue;
+    color: $white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $dark-blue;
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: $gray;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  .btn-secondary {
+    background-color: $white;
+    color: $dark-gray;
+    border: 2px solid $light-blue;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $light-blue;
+      color: $primary-blue;
+    }
+  }
+
+  .btn-edit {
+    background-color: $accent-blue;
+    color: $white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $secondary-blue;
+      transform: scale(1.05);
+    }
+  }
+
+  // Formulario
+  .form-container {
+    margin-bottom: 32px;
+
+    .form-card {
+      background-color: $white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+
+      .form-header {
+        background: linear-gradient(135deg, $primary-blue 0%, $secondary-blue 100%);
+        padding: 20px 24px;
+        color: $white;
+
+        h3 {
+          margin: 0;
+          font-size: 1.25rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+      }
+
+      .empresa-form {
+        padding: 24px;
+
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+          margin-bottom: 24px;
+        }
+
+        .form-group {
+          &.full-width {
+            grid-column: 1 / -1;
+          }
+
+          label {
+            display: block;
+            color: $dark-gray;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+          }
+
+          .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background-color: $white;
+
+            &:focus {
+              outline: none;
+              border-color: $secondary-blue;
+              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+            &.error {
+              border-color: $danger;
+              background-color: #fef2f2;
+            }
+
+            &::placeholder {
+              color: #94a3b8;
+            }
+          }
+
+          .error-message {
+            margin-top: 4px;
+
+            small {
+              color: $danger;
+              font-size: 0.75rem;
+            }
+          }
+        }
+
+        .form-actions {
+          display: flex;
+          gap: 16px;
+          justify-content: flex-end;
+          padding-top: 24px;
+          border-top: 1px solid #e2e8f0;
+        }
+      }
+    }
+  }
+
+  // Tabla
+  .table-container {
+    .table-card {
+      background-color: $white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+
+      .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        background-color: $light-blue;
+        border-bottom: 1px solid #e2e8f0;
+
+        h3 {
+          color: $primary-blue;
+          margin: 0;
+          font-size: 1.25rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .total-count {
+          color: $gray;
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+
+        .empresas-table {
+          width: 100%;
+          border-collapse: collapse;
+
+          thead {
+            background-color: $primary-blue;
+
+            th {
+              padding: 16px 20px;
+              text-align: left;
+              font-weight: 600;
+              color: $white;
+              font-size: 0.875rem;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+          }
+
+          tbody {
+            .table-row {
+              border-bottom: 1px solid #e2e8f0;
+              transition: background-color 0.2s ease;
+
+              &:hover {
+                background-color: $light-gray;
+              }
+
+              td {
+                padding: 16px 20px;
+                vertical-align: middle;
+
+                &.id-cell {
+                  font-family: 'Courier New', monospace;
+                  font-weight: 600;
+                  color: $primary-blue;
+                  font-size: 0.875rem;
+                }
+
+                &.name-cell {
+                  .company-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    .company-icon {
+                      color: $secondary-blue;
+                      font-size: 1.125rem;
+                    }
+
+                    span {
+                      font-weight: 600;
+                      color: $dark-gray;
+                    }
+                  }
+                }
+
+                &.nit-cell {
+                  font-family: 'Courier New', monospace;
+                  color: $gray;
+                }
+
+                &.address-cell {
+                  color: $gray;
+                  font-size: 0.875rem;
+                }
+
+                &.actions-cell {
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 64px 24px;
+
+        .empty-icon {
+          font-size: 4rem;
+          color: $light-blue;
+          margin-bottom: 24px;
+        }
+
+        h4 {
+          color: $dark-gray;
+          margin: 0 0 12px 0;
+          font-size: 1.25rem;
+        }
+
+        p {
+          color: $gray;
+          margin: 0 0 32px 0;
+        }
+      }
+    }
+  }
+
+  // Responsivo
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .page-header {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .form-container .form-card .empresa-form .form-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .table-wrapper {
+      font-size: 0.875rem;
+    }
+
+    .form-actions {
+      flex-direction: column;
+    }
+  }
+}

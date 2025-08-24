@@ -1,0 +1,54 @@
+:host {
+  --primary-blue: #0d2c54;
+}
+
+/* Reutilizamos el estilo del título de la sección anterior para consistencia */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  border-radius: 2px;
+}
+
+#about {
+  background-color: #f8f9fa; /* Un fondo gris muy claro para diferenciarla */
+}
+
+h3, h4 {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+p, li {
+  color: #555;
+  line-height: 1.7;
+}
+
+.value-item {
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: scale(1.05);
+}
+
+.fa-certificate {
+  transition: transform 0.3s ease;
+}
+
+li:hover .fa-certificate {
+  transform: rotate(15deg);
+}

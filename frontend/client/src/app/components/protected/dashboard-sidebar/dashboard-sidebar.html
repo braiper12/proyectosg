@@ -1,0 +1,38 @@
+<aside class="sidenav" [class.collapsed]="isCollapsed">
+    <div class="sidenav__header">
+        <div class="sidenav__logo">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            <span class="logo-text">Seguros SG</span>
+        </div>
+        <button class="toggle-btn" (click)="toggleSidebar()"
+            [attr.aria-label]="isCollapsed ? 'Expandir menú de navegación' : 'Contraer menú de navegación'"
+            [attr.title]="isCollapsed ? 'Expandir menú' : 'Contraer menú'" type="button"
+            [attr.aria-expanded]="!isCollapsed">
+            <i class="fas" [class.fa-chevron-right]="isCollapsed" [class.fa-chevron-left]="!isCollapsed"
+                aria-hidden="true"></i>
+            <span class="sr-only">{{ isCollapsed ? 'Expandir' : 'Contraer' }} menú</span>
+        </button>
+    </div>
+
+    <ul class="sidenav__list" role="navigation" aria-label="Menú principal">
+
+        <li class="sidenav__list-item" *ngFor="let item of navItems">
+
+            <a *ngIf="!item.disabled" [routerLink]="item.link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: !!item.exactMatch}" [attr.title]="isCollapsed ? item.label : null"
+                [attr.aria-label]="isCollapsed ? item.label : null">
+                <i [class]="item.icon" aria-hidden="true"></i>
+                <span class="nav-text">{{ item.label }}</span>
+            </a>
+
+            <span *ngIf="item.disabled" class="disabled"
+                [attr.title]="isCollapsed ? item.label + ' (Próximamente)' : null"
+                [attr.aria-label]="item.label + ' - Próximamente disponible'">
+                <i [class]="item.icon" aria-hidden="true"></i>
+                <span class="nav-text">{{ item.label }}</span>
+                <small class="coming-soon" *ngIf="!isCollapsed">(Próximamente)</small>
+            </span>
+
+        </li>
+    </ul>
+</aside>

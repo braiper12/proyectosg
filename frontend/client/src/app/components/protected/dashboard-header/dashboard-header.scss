@@ -1,0 +1,92 @@
+//@import '../../../styles/variables';
+
+// --- VARIABLES DE DISEÑO ---
+$primary-blue: #0A4D68;
+$secondary-blue: #088395;
+$background-light: #F0F4F8;
+$white: #FFFFFF;
+$text-dark: #343a40;
+$text-light: #F9F9F9;
+$border-color: #E0E0E0;
+$shadow-color: rgba(0, 0, 0, 0.05);
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: $white;
+    border-bottom: 1px solid $border-color;
+    flex-shrink: 0;
+
+    &__title {
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: $text-dark;
+        }
+
+        p {
+            margin: 0;
+            color: #6c757d;
+        }
+    }
+
+    &__user-menu {
+        position: relative;
+
+        .user-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            padding: 8px;
+            
+            i { 
+                margin: 0 8px; 
+                font-size: 1.5rem; 
+                color: $primary-blue; 
+            }
+            span { 
+                font-weight: 500; 
+            }
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: $white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 180px;
+            z-index: 1000;
+            
+            &.show {
+                display: block;
+            }
+            
+            a {
+                display: flex;
+                align-items: center;
+                padding: 12px 16px;
+                text-decoration: none;
+                color: $text-dark;
+                cursor: pointer;
+                
+                &:hover { 
+                    background-color: $background-light; 
+                }
+                
+                i { 
+                    width: 20px; 
+                    margin-right: 12px; 
+                }
+            }
+        }
+    }
+}

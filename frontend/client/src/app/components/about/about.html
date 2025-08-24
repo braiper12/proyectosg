@@ -1,0 +1,38 @@
+<p>about works!</p>
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <div class="row align-items-center">
+
+      <div class="col-lg-6">
+        <h3 class="mb-4">¿Quiénes Somos?</h3>
+        <p class="mb-4" [innerHTML]="whoAreWe"></p>
+        <p class="mb-4" [innerHTML]="ourTeam"></p>
+        
+        <h4>Nuestra Misión</h4>
+        <p [innerHTML]="ourMission"></p>
+      </div>
+
+      <div class="col-lg-6">
+        <h4>Nuestros Valores</h4>
+        <div class="row">
+          <div *ngFor="let value of values" class="col-6 mb-3">
+            <div class="text-center value-item">
+              <i class="fa-2x mb-2" [class]="value.icon"></i>
+              <h5>{{ value.title }}</h5>
+              <p class="small">{{ value.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="mt-4">Certificaciones</h4>
+        <ul class="list-unstyled">
+          <li *ngFor="let cert of certifications">
+            <i class="fas fa-certificate text-primary me-2"></i>{{ cert }}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

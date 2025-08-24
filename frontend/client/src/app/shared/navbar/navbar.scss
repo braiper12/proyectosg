@@ -1,0 +1,79 @@
+:host {
+  display: block;
+  margin-bottom: 56px; // Espacio para el navbar fixed
+}
+
+.navbar-custom {
+  background-color: #1a237e;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    
+    i {
+      color: #4fc3f7;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      margin: 0 0.5rem;
+
+      .nav-link {
+        color: rgba(255,255,255,0.9);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: white;
+          background-color: rgba(255,255,255,0.1);
+        }
+
+        &.active {
+          color: white;
+          background-color: #4fc3f7;
+        }
+
+        &.auth-link {
+          border: 1px solid #4fc3f7;
+          padding: 0.5rem 1.5rem;
+
+          &:hover {
+            background-color: #4fc3f7;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  // Estilos responsive
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      background-color: #1a237e;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .nav-item {
+      margin: 0.5rem 0 !important;
+    }
+
+    .auth-link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Ajuste para el contenido debajo del navbar
+main {
+  padding-top: 76px;
+}

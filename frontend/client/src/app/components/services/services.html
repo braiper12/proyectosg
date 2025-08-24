@@ -1,0 +1,24 @@
+
+<section id="services" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="row">
+
+      <div *ngFor="let service of services" class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i [class]="service.icon"></i>
+          </div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <ul class="list-unstyled">
+            <li *ngFor="let feature of service.features">
+              <i class="fas fa-check text-success me-2"></i>{{ feature }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

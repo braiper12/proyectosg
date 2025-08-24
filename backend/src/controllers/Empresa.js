@@ -124,10 +124,6 @@ class EmpresaController {
             console.error(e);
             return res.status(500).json({ error: 'Error interno del servidor' });
         }
-
-
-
-
     }
 
 
