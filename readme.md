@@ -1,143 +1,146 @@
-🚀 Mi Proyecto Backend
+🚀 ProyectoSG - Sistema de Gestión de Seguros
 
-Estado del Proyecto: 🟡 En Desarrollo Inicial
-Versión: 1.0.0
-Fecha de Inicio: 03082025
-
-Tutorial:_ **https://youtu.be/D26EyyiOcdM**
 
 📝 Descripción
-Backend desarrollado con Node.js y Express para [describe brevemente el propósito de tu aplicación]. Este proyecto está en fase inicial de desarrollo con la estructura básica implementada.
+Sistema web completo para la gestión de seguros, seguridad y salud en el trabajo (SST) y consultoría jurídica. Desarrollado con Angular en el frontend y Node.js/Express en el backend, utilizando MongoDB como base de datos.
+
+🏗️ Arquitectura del Proyecto
+ProyectoSG/
+├── 📁 backend/           # API REST con Node.js/Express
+├── 📁 frontend/client/   # Aplicación Angular
+├── 📁 postman/          # Colección de pruebas API
+├── 📄 package.json      # Scripts para ejecutar ambos servicios
+└── 📄 readme.md         # Este archivo
+
 🛠️ Tecnologías Utilizadas
+Frontend (Angular)
+- Angular 20.1.0 - Framework principal
+- Bootstrap - Estilos y componentes UI
+- SCSS - Preprocesador CSS
+- RxJS - Programación reactiva
+Backend (Node.js)
 
-Node.js - Entorno de ejecución de JavaScript
-Express.js - Framework web para Node.js
-MongoDB - Base de datos NoSQL (próximamente)
-Mongoose - ODM para MongoDB
-Dotenv - Manejo de variables de entorno
-CORS - Cross-Origin Resource Sharing
-joi - joi
+- Express.js - Framework web
+- MongoDB + Mongoose - Base de datos NoSQL
+- JWT - Autenticación y autorización
+- Joi - Validación de datos
+- bcrypt - Encriptación de contraseñas
+  
+**🚀 Instalación Rápida**
+**1. Clonar el repositorio**
+git clone https://github.com/braiper12/proyectosg.git
+cd ProyectoSG
 
-Dependencias de Desarrollo
+**2. Instalar dependencias**
 
-Nodemon - Auto-restart del servidor durante desarrollo
-
-⚙️ Requisitos Previos
-Antes de ejecutar este proyecto, asegúrate de tener instalado:
-
-Node.js (versión 16 o superior)
-npm (viene con Node.js)
-Git
-MongoDB local
-mongosh
-
-
-🚀 Instalación y Configuración
-1. Clonar el repositorio
-bashgit clone https://github.com/braiper12/proyectosg.git
-cd mi-proyecto-backend
-2. Cambiar a la rama de desarrollo
-bashgit checkout desarrollo
-3. Instalar dependencias
-bashcd backend
+# Dependencias del proyecto principal
 npm install
-4. Configurar variables de entorno
-bash# Copiar el archivo de ejemplo
-cp .env.example .env
 
-5. Ejecutar el proyecto
+# Dependencias del backend
+cd backend && npm install
 
-npm run dev
+# Dependencias del frontend
+cd ../frontend/client && npm install
 
-# Modo producción
+**3. Configurar variables de entorno**
+# Copiar archivo de ejemplo en backend/
+cp backend/.env.example backend/.env
+# Editar las variables según tu configuración
+
+**4. Ejecutar el proyecto completo**
+# Desde la raíz del proyecto
 npm start
-🌐 Endpoints Disponibles
-Endpoints Base (Implementados)
-MétodoEndpointDescripciónEstadoGET/Mensaje de bienvenida✅GET/healthEstado del servidor✅
 
-Descargar coleccion de postman
+**Esto ejecutará simultáneamente:**
 
-🧪 Pruebas
-Probar que el servidor funciona:
-bash# Ejecutar el servidor
-npm run dev
+* Backend en http://localhost:3000
+* Frontend en http://localhost:4200
 
-# En otra terminal o navegador, probar:
-curl http://localhost:3000
-# Debería devolver: {"message":"API funcionando correctamente!","timestamp":"..."}
+  
+🔧 Funcionalidades Implementadas
+🔐 Autenticación
+- Registro de usuarios
+- Login con JWT
+- Protección de rutas
+- Roles de usuario (admin/usuario)
+🏢 Gestión de Empresas
+- Crear nuevas empresas
+- Visualizar lista de empresas
+- Editar información empresarial
+- Sistema de IDs únicos secuenciales
+📊 Dashboard Administrativo
+- Panel de control principal
+- Sidebar navegable y colapsible
+- Interfaz responsiva
+🗂️ Estructura del Frontend
+frontend/client/src/app/
+├── 📁 components/        # Componentes reutilizables
+│   ├── about/           # Sección "Sobre nosotros"
+│   ├── contact/         # Formulario de contacto
+│   ├── services/        # Servicios ofrecidos
+│   └── protected/       # Componentes del área privada
+├── 📁 pages/            # Páginas principales
+│   ├── home/           # Landing page
+│   ├── auth/           # Login/Registro
+│   ├── dashboard/      # Panel administrativo
+│   └── empresas/       # Gestión de empresas
+├── 📁 services/        # Servicios HTTP
+├── 📁 guards/          # Protección de rutas
+└── 📁 shared/          # Componentes compartidos
+🗄️ Estructura del Backend
+backend/src/
+├── 📁 config/          # Configuración (DB, etc.)
+├── 📁 controllers/     # Lógica de negocio
+├── 📁 middlewares/     # Autenticación, validaciones
+├── 📁 models/          # Modelos de datos
+├── 📁 routes/          # Definición de rutas API
+├── 📁 schemas/         # Esquemas de MongoDB
+└── 📁 utils/           # Utilidades (JWT, etc.)
+🌐 Endpoints API Principales
+POST /users/register     # Registro de usuarios
+POST /users/login        # Autenticación
+GET  /empresa           # Listar empresas
+POST /empresa           # Crear empresa
+GET  /empresa/byid      # Obtener empresa por ID
+PUT  /empresa/update    # Actualizar empresa
+🎨 Características de UI/UX
+☼ **Diseño Responsivo** - Funciona en móviles, tablets y escritorio
+☼ **Tema Corporativo** - Colores azules profesionales
+☼ **Navegación Intuitiva** - Sidebar colapsible y navegación suave
+☼ **Formularios Validados** - Validación en tiempo real
+☼ **Estados de Carga** - Feedback visual para el usuario
+📱 Rutas Principales
+/                    # Landing page con servicios
+/auth               # Login/Registro
+/dashboard          # Panel administrativo (protegido)
+/empresas           # Gestión de empresas (protegido)
 
-curl http://localhost:3000/health
-# Debería devolver: {"status":"OK","uptime":...}
-🔧 Variables de Entorno
+🔒 Seguridad
+**JWT Tokens** - Autenticación stateless
+**Middleware de Autorización** - Verificación de roles
+**Validación de Datos** - Sanitización con Joi
+**Encriptación** - Contraseñas hasheadas con bcrypt
+🚀 Scripts Disponibles
+
+# Ejecutar todo el proyecto
+npm start
+
+# Solo backend
+npm run dev --prefix backend
+
+# Solo frontend
+npm start --prefix frontend/client
+
+# Construcción para producción
+npm run build --prefix frontend/client
 
 
-🌿 Gestión de Ramas
-Estrategia de Branching
-
-desarrollo: Rama principal de desarrollo
-Como trabajo individual, desarrollo directamente en desarrollo
-
-Comandos Git Útiles
-bash# Ver rama actual
-git branch
-
-# Cambiar a desarrollo
-git checkout desarrollo
-
-# Hacer commit de cambios
-git add .
-git commit -m "Descripción del cambio"
-
-# Subir cambios
-git push origin desarrollo
-📋 Próximos Pasos (Roadmap)
-Fase 1: Configuración Base ✅
-
- Estructura de carpetas
- Configuración inicial de Express
- Variables de entorno
- Git y ramas configuradas
-
-Fase 2: Base de Datos (Próximo) 🔄
-
- Configurar conexión a MongoDB
- Crear modelos base
- Implementar esquemas
-
-Fase 3: Autenticación (Planeado) ⏳
-
- Sistema de registro
- Sistema de login
- JWT tokens
- Middleware de autenticación
-
-Fase 4: API REST (Planeado) ⏳
-
- CRUD de usuarios
- Rutas protegidas
- Validaciones
- Manejo de errores
-
-Fase 5: Testing y Documentación (Planeado) ⏳
-
- Pruebas unitarias
- Pruebas de integración
- Documentación de API
- Deploy
-
-🐛 Problemas Conocidos
-
-Ninguno por el momento
-
-📞 Soporte
-Si encuentras algún problema:
-
-Revisa que Node.js esté instalado: node --version
-Verifica que las dependencias estén instaladas: npm list
-Comprueba que el puerto 3000 esté disponible
-Revisa el archivo .env
+🤝 Contribución
+Este proyecto está en desarrollo activo. Para contribuir:
 
 
 👤 Autor
 Braian Alejandro Perez Castillo
+
+GitHub: @braiper12
 
